@@ -156,6 +156,15 @@
   .plist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.4rem; }
   .plist li{ position:relative; padding-left:.95rem; font-size:.8rem; color:var(--ink); }
   .plist li::before{ content:""; position:absolute; left:0; top:.5em; width:5px; height:5px; border-radius:999px; background:var(--gold); }
+  /* knowledge base wiki mock */
+  .kbsearch{ display:flex; align-items:center; gap:.4rem; border:1px solid var(--line); border-radius:999px; padding:.4rem .7rem; font-size:.72rem; color:var(--muted); }
+  .kbcats{ display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.5rem; }
+  .kbcat{ font-size:.6rem; color:var(--ink); border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:.15rem .5rem; }
+  .kbart{ display:flex; align-items:center; gap:.5rem; border:1px solid var(--line-soft); background:var(--surface); border-radius:.5rem; padding:.45rem .6rem; margin-top:.4rem; }
+  .kbart .kdot{ width:7px; height:7px; border-radius:999px; background:var(--gold); flex:none; }
+  .kbart .kt{ flex:1; font-size:.74rem; color:var(--ink); }
+  .kbart .kcat{ font-size:.55rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:.1rem .4rem; }
+  .kbadd{ display:inline-block; margin-top:.6rem; background:var(--gold); color:var(--ivory); font-size:.7rem; font-weight:600; border-radius:999px; padding:.4rem .8rem; }
   .badge{ display:inline-flex; align-items:center; gap:.35rem; border:1px solid color-mix(in srgb,var(--gold) 50%,transparent); background:color-mix(in srgb,var(--gold) 14%,transparent); color:var(--gold); border-radius:999px; padding:.2rem .6rem; font-size:.6rem; font-weight:600; letter-spacing:.06em; }
 
   /* school page mock */
@@ -536,20 +545,29 @@
   <section class="slide">
     <div class="card">
       <div>
-        <div class="eyebrow">Staff portal · Every screen</div>
-        <h2>Notepad</h2>
-        <p class="lede">A floating notepad on every page, a timestamped note log per user, synced across devices, with send-to-teammate (in-app or email) and a &ldquo;Shared with me&rdquo; inbox.</p>
+        <div class="eyebrow">Staff portal · Knowledge base</div>
+        <h2>The Rooted Knowledge Base Wiki</h2>
+        <p class="lede">One place to capture the company&rsquo;s tribal knowledge: the how-tos, answers, and hard-won lessons that usually live in people&rsquo;s heads. Any employee can add an article, search everything, and find the answer fast.</p>
+        <ul class="pts">
+          <li>Anyone can add or edit an article</li>
+          <li>Search across every how-to and answer</li>
+          <li>Turns tribal knowledge into a shared, searchable library</li>
+        </ul>
         <div class="meta">
-          <span class="chip">Private to each user</span>
-          <span class="chip build"><span class="d"></span> Proposed</span>
+          <span class="chip">Everyone contributes</span>
+          <span class="chip build"><span class="d"></span> Planned</span>
         </div>
       </div>
       <div class="visual">
-        <div class="frame" style="max-width:300px">
-          <div class="bar"><i></i><i></i><i></i><span>📝 Notepad · Overview</span></div>
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span>Rooted Knowledge Base</span></div>
           <div class="body">
-            <div class="row" style="align-items:flex-start"><div style="flex:1"><div style="font-size:.5rem; color:var(--muted); letter-spacing:.1em">2:14 PM</div><span class="ln" style="display:block; width:90%; margin-top:.3rem"></span></div><span class="pill">Send →</span></div>
-            <div class="row" style="margin-top:.4rem; align-items:flex-start"><div style="flex:1"><div style="font-size:.5rem; color:var(--muted); letter-spacing:.1em">2:31 PM</div><span class="ln" style="display:block; width:70%; margin-top:.3rem"></span></div><span class="pill">Send →</span></div>
+            <div class="kbsearch">🔍 Search the knowledge base&hellip;</div>
+            <div class="kbcats"><span class="kbcat">Onboarding</span><span class="kbcat">Sales</span><span class="kbcat">Tech</span><span class="kbcat">Curriculum</span></div>
+            <div class="kbart"><span class="kdot"></span><span class="kt">Reset a student login</span><span class="kcat">Support</span></div>
+            <div class="kbart"><span class="kdot"></span><span class="kt">New-school setup checklist</span><span class="kcat">Success</span></div>
+            <div class="kbart"><span class="kdot"></span><span class="kt">Refund &amp; billing policy</span><span class="kcat">Finance</span></div>
+            <div class="kbadd">+ Add article</div>
           </div>
         </div>
       </div>
