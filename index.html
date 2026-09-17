@@ -201,6 +201,14 @@
   .rqa li{ display:flex; align-items:center; gap:.5rem; border:1px solid var(--line-soft); background:var(--surface); border-radius:.5rem; padding:.4rem .55rem; }
   .rqrole{ flex:none; width:6.2rem; text-align:center; font-size:.55rem; font-weight:700; letter-spacing:.02em; color:#7a5a12; border:1px solid color-mix(in srgb,var(--gold) 50%,transparent); background:color-mix(in srgb,var(--gold) 15%,transparent); border-radius:999px; padding:.16rem .3rem; }
   .rqq{ font-size:.72rem; color:var(--ink); }
+  .shot img{ cursor:zoom-in; transition:transform .18s ease, box-shadow .18s ease; }
+  .shot img:hover{ transform:scale(1.015); box-shadow:0 22px 50px -18px color-mix(in srgb,var(--ink) 55%,transparent); }
+  .lb{ display:none; position:fixed; inset:0; z-index:100; background:color-mix(in srgb,#000 82%,transparent); align-items:center; justify-content:center; padding:3vh 3vw; cursor:zoom-out; }
+  .lb.open{ display:flex; }
+  .lb img{ max-width:94vw; max-height:94vh; border-radius:.5rem; box-shadow:0 30px 90px -20px #000; }
+  .lb-x{ position:fixed; top:.8rem; right:1.1rem; width:2.2rem; height:2.2rem; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); color:#fff; font-size:1.1rem; cursor:pointer; }
+  .lb-x:hover{ background:rgba(255,255,255,.22); }
+  .lb-hint{ position:fixed; bottom:1rem; left:0; right:0; text-align:center; color:rgba(255,255,255,.7); font-size:.72rem; }
   .badge{ display:inline-flex; align-items:center; gap:.35rem; border:1px solid color-mix(in srgb,var(--gold) 50%,transparent); background:color-mix(in srgb,var(--gold) 14%,transparent); color:var(--gold); border-radius:999px; padding:.2rem .6rem; font-size:.6rem; font-weight:600; letter-spacing:.06em; }
 
   /* school page mock */
@@ -933,6 +941,12 @@
 </div>
 <div class="hint">← → arrow keys to navigate</div>
 
+<div class="lb" id="lightbox" aria-hidden="true">
+  <img alt="Enlarged screenshot">
+  <button class="lb-x" type="button" aria-label="Close">✕</button>
+  <div class="lb-hint">Click anywhere or press Esc to close</div>
+</div>
+
 <script>
 (function(){
   const slides = Array.from(document.querySelectorAll(".slide"));
@@ -965,5 +979,22 @@
   themeBtn.addEventListener("click", ()=> document.documentElement.setAttribute("data-theme", isDark()?"light":"dark"));
 
   const m = (location.hash.match(/^#s(\d+)$/)); if(m) show(parseInt(m[1],10)-1); else show(0);
+})();
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'), img=lb.querySelector('img');
+  function open(src){ img.src=src; lb.classList.add('open'); }
+  function close(){ lb.classList.remove('open'); img.removeAttribute('src'); }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest && e.target.closest('.shot img');
+    if(t){ open(t.currentSrc||t.src); return; }
+    if(lb.classList.contains('open')){ close(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(['Escape','ArrowLeft','ArrowRight',' ','PageUp','PageDown'].indexOf(e.key)>-1){ e.stopImmediatePropagation(); if(e.key==='Escape') close(); }
+  }, true);
+  document.querySelectorAll('.shot img').forEach(function(i){ i.title='Click to enlarge'; });
 })();
 </script>
