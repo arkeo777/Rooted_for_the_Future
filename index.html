@@ -38,7 +38,7 @@
 
   .stage{ position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:clamp(1rem,3vw,2.5rem); padding-bottom:5.5rem; }
   .slide{ display:none; width:min(1040px,100%); }
-  .slide.active{ display:block; animation:fade .35s ease; }
+  .slide.active{ display:block; }
   @media (prefers-reduced-motion:reduce){ .slide.active{ animation:none; } }
   @keyframes fade{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
 
@@ -65,10 +65,20 @@
   .cover-sub{ font-family:var(--serif); font-size:clamp(1.6rem,3.4vw,2.3rem); color:#F3ECDD; position:relative; z-index:1; }
   .cover-tag{ margin-top:.6rem; font-size:.9rem; letter-spacing:.04em; color:#b7ae9e; position:relative; z-index:1; }
   @media (prefers-reduced-motion:no-preference){
-    .card.cover .cover-logo{ animation:logoIn 1.15s cubic-bezier(.2,.7,.2,1) both; }
-    @keyframes logoIn{ from{opacity:0; transform:translateY(12px) scale(.95)} to{opacity:1; transform:none} }
-    .card.cover .cover-dot{ animation:dotPulse 2.6s ease-in-out 1s infinite; }
+    /* cover: reveal top-to-bottom so the roots draw in last */
+    .card.cover .cover-logo{ animation:logoGrow 1.7s cubic-bezier(.22,.65,.25,1) both; }
+    @keyframes logoGrow{ from{opacity:.15; clip-path:inset(0 0 100% 0)} 55%{opacity:1} to{opacity:1; clip-path:inset(0 0 0% 0)} }
+    .card.cover .cover-dot{ animation:dotPulse 2.6s ease-in-out 1.7s infinite; }
     @keyframes dotPulse{ 0%,100%{opacity:.45; transform:scale(1)} 50%{opacity:1; transform:scale(1.6)} }
+    .card.cover .cover-sub{ animation:rise .7s ease-out 1.25s both; }
+    .card.cover .cover-tag{ animation:rise .7s ease-out 1.45s both; }
+    /* subtle staggered entrance for each slide's content */
+    .slide.active .eyebrow{ animation:rise .5s ease-out both; }
+    .slide.active h1, .slide.active h2{ animation:rise .5s ease-out .07s both; }
+    .slide.active .lede{ animation:rise .55s ease-out .14s both; }
+    .slide.active .pts, .slide.active .meta{ animation:rise .55s ease-out .2s both; }
+    .slide.active .visual, .slide.active .phasegrid{ animation:rise .6s ease-out .12s both; }
+    @keyframes rise{ from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none} }
   }
   @media (max-width:760px){ .card{ grid-template-columns:1fr; min-height:auto; } .visual{ order:2; } }
 
