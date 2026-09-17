@@ -1,0 +1,28 @@
+name: Expire preview
+on:
+  schedule:
+    - cron: "0 13 23 9 *"   # 13:00 UTC on Sep 23, 2026 (6 days after publish)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  expire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Take the preview down
+        run: |
+          rm -f Rooted_for_the_Future.html Rooted_for_the_Future.pptx
+          cat > index.html <<'HTML'
+          <!doctype html><html><head><meta charset="utf-8"><title>Preview expired</title></head>
+          <body style="font-family:system-ui,-apple-system,sans-serif;background:#f5efe3;color:#1d1a15">
+          <div style="max-width:40rem;margin:20vh auto;text-align:center;padding:0 1rem">
+            <h1 style="font-weight:600;font-size:1.8rem">This preview has expired</h1>
+            <p style="color:#7a7266;font-size:1.05rem">The &ldquo;Rooted for the Future&rdquo; preview was shared for a limited time and is no longer available online.</p>
+          </div></body></html>
+          HTML
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Expire preview after 6 days" || echo "nothing to commit"
+          git push
