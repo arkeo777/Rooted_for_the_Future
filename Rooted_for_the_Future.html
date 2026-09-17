@@ -64,6 +64,12 @@
   .cover-dot{ width:8px; height:8px; border-radius:999px; background:#c4a24e; margin:1.4rem auto .9rem; position:relative; z-index:1; }
   .cover-sub{ font-family:var(--serif); font-size:clamp(1.6rem,3.4vw,2.3rem); color:#F3ECDD; position:relative; z-index:1; }
   .cover-tag{ margin-top:.6rem; font-size:.9rem; letter-spacing:.04em; color:#b7ae9e; position:relative; z-index:1; }
+  @media (prefers-reduced-motion:no-preference){
+    .card.cover .cover-logo{ animation:logoIn 1.15s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes logoIn{ from{opacity:0; transform:translateY(12px) scale(.95)} to{opacity:1; transform:none} }
+    .card.cover .cover-dot{ animation:dotPulse 2.6s ease-in-out 1s infinite; }
+    @keyframes dotPulse{ 0%,100%{opacity:.45; transform:scale(1)} 50%{opacity:1; transform:scale(1.6)} }
+  }
   @media (max-width:760px){ .card{ grid-template-columns:1fr; min-height:auto; } .visual{ order:2; } }
 
   .eyebrow{ font-size:.62rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); font-weight:600; }
@@ -165,6 +171,12 @@
   .kbart .kt{ flex:1; font-size:.74rem; color:var(--ink); }
   .kbart .kcat{ font-size:.55rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:.1rem .4rem; }
   .kbadd{ display:inline-block; margin-top:.6rem; background:var(--gold); color:var(--ivory); font-size:.7rem; font-weight:600; border-radius:999px; padding:.4rem .8rem; }
+  .emi{ width:1em; height:1em; vertical-align:-0.14em; }
+  .surf .ic .emi{ width:1.5rem; height:1.5rem; color:var(--gold); }
+  .chip .emi{ width:.85rem; height:.85rem; margin-right:.25rem; color:var(--gold); }
+  .kbsearch .emi{ width:.9rem; height:.9rem; margin-right:.3rem; color:var(--muted); flex:none; }
+  .linkchip .emi{ width:.8rem; height:.8rem; margin-right:.22rem; }
+  .pill .emi{ width:.7rem; height:.7rem; margin-right:.15rem; color:var(--muted); }
   .badge{ display:inline-flex; align-items:center; gap:.35rem; border:1px solid color-mix(in srgb,var(--gold) 50%,transparent); background:color-mix(in srgb,var(--gold) 14%,transparent); color:var(--gold); border-radius:999px; padding:.2rem .6rem; font-size:.6rem; font-weight:600; letter-spacing:.06em; }
 
   /* school page mock */
@@ -270,9 +282,9 @@
       <div class="visual">
         <div style="width:100%">
           <div class="surfaces">
-            <div class="surf"><div class="ic">🌐</div><h4>Public site</h4><p>Marketing, curriculum, sign-ups</p></div>
-            <div class="surf"><div class="ic">📊</div><h4>Staff portal</h4><p>Hubs, inbox, workflows</p></div>
-            <div class="surf"><div class="ic">🏫</div><h4>School Portal</h4><p>Self-serve onboarding</p></div>
+            <div class="surf"><div class="ic"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg></div><h4>Public site</h4><p>Marketing, curriculum, sign-ups</p></div>
+            <div class="surf"><div class="ic"><svg class="emi" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="11" width="3.4" height="8" rx="1"/><rect x="10.3" y="6" width="3.4" height="13" rx="1"/><rect x="16.6" y="9" width="3.4" height="10" rx="1"/></svg></div><h4>Staff portal</h4><p>Hubs, inbox, workflows</p></div>
+            <div class="surf"><div class="ic"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M10 21v-5h4v5"/></svg></div><h4>School Portal</h4><p>Self-serve onboarding</p></div>
           </div>
           <div class="backbone">The data behind it all: Salesforce, the learning platform, and one secure database</div>
         </div>
@@ -563,7 +575,7 @@
         <div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>Rooted Knowledge Base</span></div>
           <div class="body">
-            <div class="kbsearch">🔍 Search the knowledge base&hellip;</div>
+            <div class="kbsearch"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.5 16.5"/></svg> Search the knowledge base&hellip;</div>
             <div class="kbcats"><span class="kbcat">Onboarding</span><span class="kbcat">Sales</span><span class="kbcat">Tech</span><span class="kbcat">Curriculum</span></div>
             <div class="kbart"><span class="kdot"></span><span class="kt">Reset a student login</span><span class="kcat">Support</span></div>
             <div class="kbart"><span class="kdot"></span><span class="kt">New-school setup checklist</span><span class="kcat">Success</span></div>
@@ -594,7 +606,7 @@
             <div class="rows">
               <div class="row"><span class="dot"></span><span class="ln" style="flex:1"></span><span class="pill">connected</span></div>
               <div class="row"><span class="dot w"></span><span class="ln" style="flex:1"></span><span class="pill">not set</span></div>
-              <div class="row"><span class="dot"></span><span class="ln" style="flex:1"></span><span class="pill">🔒 vault</span></div>
+              <div class="row"><span class="dot"></span><span class="ln" style="flex:1"></span><span class="pill"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> vault</span></div>
             </div>
           </div>
         </div>
@@ -779,9 +791,9 @@
         <div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>DeepRoots assistant</span></div>
           <div class="body chatbody">
-            <div class="msg bot">Hi! I can help &mdash; what do you need?</div>
+            <div class="msg bot">Hi! I can help. What do you need?</div>
             <div class="msg user">Where is the Employee Handbook?</div>
-            <div class="msg bot">Here it is &mdash; plus your first-week checklist:<br><span class="linkchip">📄 Employee Handbook</span></div>
+            <div class="msg bot">Here it is, plus your first-week checklist:<br><span class="linkchip"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg> Employee Handbook</span></div>
             <div class="askbar">Ask DeepRoots&hellip;<span class="send">↑</span></div>
           </div>
         </div>
@@ -829,8 +841,8 @@
         <h2>Where it stands and what&rsquo;s next</h2>
         <p class="lede">You can click through every screen, but this is early: what&rsquo;s live today is mostly mockups, not real data yet. The build ahead is what makes each area real.</p>
         <ul class="pts">
-          <li><b>Started:</b> ~10% complete; only the mockups are live so far.</li>
-          <li><b>Next:</b> a ~10-week build to connect the real data sources.</li>
+          <li><b>Today:</b> mockups and workflow processes documented.</li>
+          <li><b>Next:</b> connect the real data sources, aiming for an end-of-March go-live.</li>
           <li><b>Roadmap:</b> Pre-K → finish 8th grade → churches → self-taught path.</li>
         </ul>
       </div>
@@ -857,7 +869,7 @@
         <h1>What we&rsquo;d build</h1>
         <p class="lede">One operating picture: public site, staff portal, and School Portal over a modern data backbone. The system we&rsquo;d build for DeepRoots, honest by design.</p>
         <div class="meta" style="justify-content:center">
-          <span class="chip">🌐 Public</span><span class="chip">📊 Portal</span><span class="chip">🏫 Schools</span><span class="chip">🗄️ Data backbone</span>
+          <span class="chip"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg> Public</span><span class="chip"><svg class="emi" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="11" width="3.4" height="8" rx="1"/><rect x="10.3" y="6" width="3.4" height="13" rx="1"/><rect x="16.6" y="9" width="3.4" height="10" rx="1"/></svg> Portal</span><span class="chip"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M10 21v-5h4v5"/></svg> Schools</span><span class="chip"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg> Data backbone</span>
         </div>
       </div>
     </div>
