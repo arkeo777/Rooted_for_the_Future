@@ -197,6 +197,10 @@
   .cover-dl{ display:inline-flex; align-items:center; gap:.45rem; margin-top:1.5rem; position:relative; z-index:1; color:#F3ECDD; text-decoration:none; font-size:.8rem; border:1px solid color-mix(in srgb,#c4a24e 60%,transparent); border-radius:999px; padding:.5rem 1.05rem; transition:background .2s,border-color .2s; }
   .cover-dl:hover{ background:color-mix(in srgb,#c4a24e 18%,transparent); border-color:#c4a24e; }
   .cover-dl .emi{ width:.9rem; height:.9rem; color:#c4a24e; }
+  .rqa{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.35rem; }
+  .rqa li{ display:flex; align-items:center; gap:.5rem; border:1px solid var(--line-soft); background:var(--surface); border-radius:.5rem; padding:.4rem .55rem; }
+  .rqrole{ flex:none; width:6.2rem; text-align:center; font-size:.55rem; font-weight:700; letter-spacing:.02em; color:#7a5a12; border:1px solid color-mix(in srgb,var(--gold) 50%,transparent); background:color-mix(in srgb,var(--gold) 15%,transparent); border-radius:999px; padding:.16rem .3rem; }
+  .rqq{ font-size:.72rem; color:var(--ink); }
   .badge{ display:inline-flex; align-items:center; gap:.35rem; border:1px solid color-mix(in srgb,var(--gold) 50%,transparent); background:color-mix(in srgb,var(--gold) 14%,transparent); color:var(--gold); border-radius:999px; padding:.2rem .6rem; font-size:.6rem; font-weight:600; letter-spacing:.06em; }
 
   /* school page mock */
@@ -711,36 +715,6 @@
 
 
 
-  <!-- School walk-through helper -->
-  <section class="slide">
-    <div class="card">
-      <div class="phasetag">Phase 2</div>
-      <div>
-        <div class="eyebrow">School Portal · Helper</div>
-        <h2>The School Walk-through Helper</h2>
-        <p class="lede">A built-in helper that guides teachers, admins, and heads of school through setup, day-to-day tasks, and finding their way around the curriculum. Ask a question, get a step-by-step answer.</p>
-        <ul class="pts">
-          <li>How do I fill out our roster?</li>
-          <li>How do I reset a student&rsquo;s password?</li>
-          <li>Can my students&rsquo; parents get a login?</li>
-          <li>Where do I find this in the curriculum?</li>
-        </ul>
-        <div class="meta"><span class="chip">Teachers, admins &amp; heads of school</span><span class="chip build"><span class="d"></span> Planned</span></div>
-      </div>
-      <div class="visual">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span>Rooted Helper</span></div>
-          <div class="body chatbody">
-            <div class="msg bot">Hi! I can help with setup and day-to-day. What do you need?</div>
-            <div class="msg user">How do I fill out our roster?</div>
-            <div class="msg bot">Add students by hand or import a spreadsheet, here&rsquo;s the guide:<br><span class="linkchip"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg> Roster import guide</span></div>
-            <div class="askbar">Ask the Rooted Helper&hellip;<span class="send">↑</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 17 · Section: Optimization -->
   <section class="slide">
     <div class="card divider">
@@ -842,29 +816,32 @@
     </div>
   </section>
 
-  <!-- DeepRoots assistant -->
+  <!-- Rooted Helper (role-aware) -->
   <section class="slide">
     <div class="card">
-      <div class="phasetag">Phase 3</div>
+      <div class="phasetag">Phase 2</div>
       <div>
-        <div class="eyebrow">What we&rsquo;d build · Assistant</div>
-        <h2>A DeepRoots helper that knows who you are</h2>
-        <p class="lede">A built-in helper that answers questions and guides each person by their role. Sign in as a teacher and it points you to lesson help; as a new employee, straight to the Employee Handbook and where to find things.</p>
+        <div class="eyebrow">What we&rsquo;d build · Rooted Helper</div>
+        <h2>One helper that knows who you are</h2>
+        <p class="lede">One built-in helper for everyone. It knows your role the moment you sign in and answers any question in your world, from first-day setup to daily tasks to finding a lesson. Staff get internal answers; schools and homeschools get theirs, and role-based access means a school never sees internal-only information.</p>
         <ul class="pts">
-          <li>Teacher: &ldquo;How do I reset a student login?&rdquo;</li>
-          <li>New hire: &ldquo;Where is the Employee Handbook?&rdquo;</li>
-          <li>Sales Ambassador: &ldquo;Which schools are due to renew?&rdquo;</li>
+          <li>Knows your role the moment you sign in</li>
+          <li>Role-based access keeps internal info internal</li>
         </ul>
-        <div class="meta"><span class="chip">Knows your role</span><span class="chip build"><span class="d"></span> Planned</span></div>
+        <div class="meta"><span class="chip">One helper, every role</span><span class="chip build"><span class="d"></span> Planned</span></div>
       </div>
       <div class="visual">
         <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span>DeepRoots assistant</span></div>
-          <div class="body chatbody">
-            <div class="msg bot">Hi! I can help. What do you need?</div>
-            <div class="msg user">Where is the Employee Handbook?</div>
-            <div class="msg bot">Here it is, plus your first-week checklist:<br><span class="linkchip"><svg class="emi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg> Employee Handbook</span></div>
-            <div class="askbar">Ask DeepRoots&hellip;<span class="send">↑</span></div>
+          <div class="bar"><i></i><i></i><i></i><span>Rooted Helper</span></div>
+          <div class="body">
+            <ul class="rqa">
+              <li><span class="rqrole">Teacher</span><span class="rqq">How do I fill out our roster?</span></li>
+              <li><span class="rqrole">Homeschool</span><span class="rqq">Reset my child&rsquo;s password?</span></li>
+              <li><span class="rqrole">Head of school</span><span class="rqq">Add another teacher?</span></li>
+              <li><span class="rqrole">New staff</span><span class="rqq">Where&rsquo;s the Employee Handbook?</span></li>
+              <li><span class="rqrole">Sales</span><span class="rqq">Which schools renew soon?</span></li>
+              <li><span class="rqrole">Anyone</span><span class="rqq">Find this in the curriculum?</span></li>
+            </ul>
           </div>
         </div>
       </div>
